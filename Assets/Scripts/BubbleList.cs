@@ -26,7 +26,7 @@ public class BubbleList : MonoBehaviour
     {
         if (bubbleList.Count > 0)
         {
-            return bubbleList[0];
+            return bubbleList[bubbleList.Count-1];
         }
         else
         {
