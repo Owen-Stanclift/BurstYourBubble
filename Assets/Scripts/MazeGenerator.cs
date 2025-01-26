@@ -39,7 +39,7 @@ public class MazeGenerator : MonoBehaviour
         {
             for(int y = 0; y < mazeDepth; y++)
             {
-                mazeGrid[x, y] = Instantiate(mazeCellPrefab, new Vector3((x), (y), 0), Quaternion.identity);
+                mazeGrid[x, y] = Instantiate(mazeCellPrefab, new Vector3(x, y, 0), Quaternion.identity);
 
                 if (Random.value < placementProbability)
                 {
