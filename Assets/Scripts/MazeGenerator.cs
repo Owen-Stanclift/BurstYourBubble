@@ -14,21 +14,42 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField]
     private int mazeDepth;
 
+    [SerializeField]
+    private GameObject coinPrefab;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float placementProbability = 0.2f;
+
     private MazeCell[,] mazeGrid;
-    // Start is called before the first frame update
+
     void Start()
     {
         mazeGrid = new MazeCell[mazeWidth, mazeDepth];
 
         for(int x = 0; x < mazeWidth; x++)
         {
-            for(int z = 0; z < mazeDepth; z++)
+            for(int y = 0; y < mazeDepth; y++)
             {
-                mazeGrid[x, z] = Instantiate(mazeCellPrefab, new Vector3(x, 0, z), Quaternion.identity);
+                mazeGrid[x, y] = Instantiate(mazeCellPrefab, new Vector3(x, y, 0), Quaternion.identity);
+
+                if (Random.value < placementProbability)
+                {
+                    Instantiate(coinPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                }
+
             }
         }
 
+        //opening in top left of the maze:
+        mazeGrid[0, 0].ClearLeftWall(); // Open the left wall
+        mazeGrid[0, 0].ClearBackWall();
+
+        //carve the maze
         CarveMaze(null, mazeGrid[0,0]);
+
+        //set an ending cell
+        SetEndingCell();
     }
 
     private void CarveMaze(MazeCell previousCell, MazeCell currentCell)
@@ -59,11 +80,11 @@ public class MazeGenerator : MonoBehaviour
     private IEnumerable<MazeCell> GetUnvisitedCell(MazeCell currentCell)
     {
         int x = (int)currentCell.transform.position.x;
-        int z = (int)currentCell.transform.position.z;
+        int y = (int)currentCell.transform.position.y;
 
         if(x + 1 < mazeWidth)
         {
-            var cellToRight = mazeGrid[x + 1, z];
+            var cellToRight = mazeGrid[x + 1, y];
 
             if(cellToRight.IsVisted == false)
             {
@@ -73,7 +94,7 @@ public class MazeGenerator : MonoBehaviour
 
         if (x - 1 >= 0)
         {
-            var cellToLeft = mazeGrid[x - 1, z];
+            var cellToLeft = mazeGrid[x - 1, y];
 
             if (cellToLeft.IsVisted == false)
             {
@@ -81,9 +102,9 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        if(z + 1 <  mazeDepth)
+        if(y + 1 <  mazeDepth)
         {
-            var cellToFront = mazeGrid[x, z + 1];
+            var cellToFront = mazeGrid[x, y + 1];
 
             if(cellToFront.IsVisted == false)
             {
@@ -91,9 +112,9 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        if(z - 1 >= 0)
+        if(y - 1 >= 0)
         {
-            var cellToBack = mazeGrid[x, z - 1];
+            var cellToBack = mazeGrid[x, y - 1];
 
             if(cellToBack.IsVisted == false)
             {
@@ -123,14 +144,14 @@ public class MazeGenerator : MonoBehaviour
             return;
         }
 
-        if(previousCell.transform.position.z < currentCell.transform.position.z)
+        if(previousCell.transform.position.y < currentCell.transform.position.y)
         {
             previousCell.ClearFrontWall();
             currentCell.ClearBackWall();
             return;
         }
 
-        if(previousCell.transform.position.z > currentCell.transform.position.z)
+        if(previousCell.transform.position.y > currentCell.transform.position.y)
         {
             previousCell.ClearBackWall();
             currentCell.ClearFrontWall();
@@ -138,9 +159,11 @@ public class MazeGenerator : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetEndingCell()
     {
-        
+        MazeCell endingCell = mazeGrid[mazeWidth - 1, mazeDepth - 1];
+
+        endingCell.ClearRightWall();
+        endingCell.ClearFrontWall();
     }
 }
