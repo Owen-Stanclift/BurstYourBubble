@@ -11,9 +11,9 @@ public class FollowPlayer : MonoBehaviour
     public bool followPlayer = false;
 
     [SerializeField]
-    private float followSpeed = 3.0f;
+    private float followSpeed = 5.0f;
 
-    private float minDistance = 0.5f; //min distance from player
+    private float minDistance = 0.4f; //min distance from player
 
     void Update()
     {
@@ -32,7 +32,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bubble"))
         {
             if (!followPlayer)
             {
