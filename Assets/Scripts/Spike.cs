@@ -17,12 +17,12 @@ public class Spike : MonoBehaviour
                 }
                 else
                 {
-                    Destroy(collision.gameObject);
+                    Destroy(collision.gameObject,0.4f);
                 }
         }
         if (collision.CompareTag("Bubble"))
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject,0.4f);
         }
     }
 
