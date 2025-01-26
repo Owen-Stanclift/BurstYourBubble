@@ -21,6 +21,10 @@ public class BubbleList : MonoBehaviour
     {
         bubbleList.Add(bubble);
     }
+    public void RemoveBubble()
+    {
+        Destroy(bubbleList[bubbleList.Count-1],0.5f);
+    }
 
     public GameObject getFirstBubble()
     {

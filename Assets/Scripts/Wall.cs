@@ -18,7 +18,8 @@ public class Wall : MonoBehaviour
                 Vector3 pos = collision.transform.position;
                 collision.transform.position = bubble.transform.position;
                 anim.SetBool("IsDead", true);
-                Destroy(bubble,0.5f);
+                collision.GetComponent<BubbleList>().RemoveBubble();
+                //Destroy(bubble,0.5f);
             }
             else
             {
