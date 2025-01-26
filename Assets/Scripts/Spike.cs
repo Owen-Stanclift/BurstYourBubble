@@ -8,7 +8,17 @@ public class Spike : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+                if (collision.gameObject.GetComponent<BubbleList>().getFirstBubble() != null)
+                {
+                    GameObject bubble = collision.gameObject.GetComponent<BubbleList>().getFirstBubble();
+                Vector3 pos = collision.transform.position;
+                    collision.transform.position = bubble.transform.position;
+                    Destroy(bubble);
+                }
+                else
+                {
+                    Destroy(collision.gameObject);
+                }
         }
         if (collision.CompareTag("Bubble"))
         {

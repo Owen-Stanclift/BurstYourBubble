@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 546688937960788017}
   - component: {fileID: 2812641457396735512}
   - component: {fileID: 4585283918408421767}
+  - component: {fileID: -1523559866174924439}
   m_Layer: 0
   m_Name: Spikeball
   m_TagString: Spike
@@ -261,6 +262,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761469fc4d89c70499d2c36f3e6e3782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1523559866174924439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304198553475332530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5d69d024f89e24cb9a94abe9672321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWall: {fileID: 1304198553475332530}
+  rightWall: {fileID: 1304198553475332530}
+  frontWall: {fileID: 1304198553475332530}
+  backWall: {fileID: 1304198553475332530}
+  unvisitedBlock: {fileID: 1304198553475332530}
 --- !u!1 &1540594246148474234
 GameObject:
   m_ObjectHideFlags: 0

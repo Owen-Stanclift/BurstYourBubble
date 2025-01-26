@@ -709,7 +709,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   centerOnPlayer: 1
   Player: {fileID: 1857256232}
-  distanceFromPlayer: 4
+  distanceFromPlayer: 2
 --- !u!1 &524369416
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,15 +776,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882989377476159761, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5882989377476159761, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5882989377476159761, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5882989377476159761, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
       propertyPath: m_LocalPosition.x
@@ -826,9 +826,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5882989377476159761, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6051163354150316711, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
       propertyPath: forcePower
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7147935863297304797, guid: 58563819a7952f94e9d453e408c8d791, type: 3}
       propertyPath: m_Enabled
@@ -1038,8 +1042,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1056,8 +1060,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazeCellPrefab: {fileID: 3873436532012747031, guid: da1cea35da05fa242b1e6907574ea175, type: 3}
-  mazeWidth: 20
-  mazeDepth: 20
+  mazeWidth: 70
+  mazeDepth: 70
   coinPrefab: {fileID: 866428432573696681, guid: fb64f5174f38ec3478a564a413212714, type: 3}
   placementProbability: 0.1
 --- !u!1 &983209983

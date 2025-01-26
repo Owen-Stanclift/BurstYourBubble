@@ -8,7 +8,7 @@ public class FollowPlayer : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    bool followPlayer = false;
+    public bool followPlayer = false;
 
     [SerializeField]
     private float followSpeed = 3.0f;
@@ -35,6 +35,8 @@ public class FollowPlayer : MonoBehaviour
         Debug.Log("interaction");
         if(collision.gameObject.CompareTag("Player"))
         {
+            if(!followPlayer)
+            collision.gameObject.GetComponent<BubbleList>().AddBubble(gameObject);
             followPlayer = true;
         }
     }
