@@ -303,7 +303,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 904948651}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ed2696a9b300e1e428ccc9bd9acc4e4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43bfe2da98c510641a3cb92bf77f291a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -544,7 +544,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 34cc2bf0af39e194d840a91a4944895c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48f23a82d92da9547989f6c1d96eb481, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
