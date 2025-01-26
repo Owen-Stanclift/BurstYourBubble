@@ -23,6 +23,7 @@ public class Wall : MonoBehaviour
             else
             {
                 Debug.Log("Only player left, player destroyed");
+                collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 playerAnim.SetBool("IsDead", true);
                 Destroy(collision.gameObject,0.5f);
             }
