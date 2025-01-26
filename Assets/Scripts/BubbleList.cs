@@ -24,12 +24,14 @@ public class BubbleList : MonoBehaviour
 
     public GameObject getFirstBubble()
     {
-        if (bubbleList[0] != null)
+        if (bubbleList.Count > 0)
         {
             return bubbleList[0];
         }
         else
+        {
             return null;
+        }
 
     }
 }

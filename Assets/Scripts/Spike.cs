@@ -6,6 +6,7 @@ public class Spike : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("herro");
         if(collision.CompareTag("Player"))
         {
                 if (collision.gameObject.GetComponent<BubbleList>().getFirstBubble() != null)

@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Bubble"))
+        Debug.Log("Interaction");
+        if (collision.CompareTag("Player"))
         {
-            if(other.CompareTag("Player"))
+            if (collision.gameObject.GetComponent<BubbleList>().getFirstBubble() != null)
             {
-                if(other.gameObject.GetComponent<BubbleList>().getFirstBubble() != null)
-                {
-                    GameObject bubble = other.gameObject.GetComponent<BubbleList>().getFirstBubble();
-                    other.transform.position = bubble.transform.position;
-                }
-                else
-                {
-                    Destroy(other.gameObject);
-                }
+                Debug.Log("Switching to First Bubble");
+                GameObject bubble = collision.gameObject.GetComponent<BubbleList>().getFirstBubble();
+                Vector3 pos = collision.transform.position;
+                collision.transform.position = bubble.transform.position;
+                Destroy(bubble);
             }
             else
-            Destroy(other.gameObject);
+            {
+                Debug.Log("Only player left, player destroyed");
+                Destroy(collision.gameObject);
+            }
+        }
+        if (collision.CompareTag("Bubble"))
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
