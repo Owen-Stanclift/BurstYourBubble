@@ -8,21 +8,27 @@ public class Spike : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            Animator playerAnim = collision.GetComponent<Animator>();
                 if (collision.gameObject.GetComponent<BubbleList>().getFirstBubble() != null)
                 {
                     GameObject bubble = collision.gameObject.GetComponent<BubbleList>().getFirstBubble();
-                Vector3 pos = collision.transform.position;
+                    Animator anim = bubble.GetComponent<Animator>();
+                    Vector3 pos = collision.transform.position;
                     collision.transform.position = bubble.transform.position;
-                    Destroy(bubble);
+                    anim.SetBool("IsDead", true);
+                    Destroy(bubble,0.6f);
                 }
                 else
                 {
-                    Destroy(collision.gameObject,0.4f);
+                playerAnim.SetBool("IsDead", true);
+                Destroy(collision.gameObject,0.6f);
                 }
         }
         if (collision.CompareTag("Bubble"))
         {
-            Destroy(collision.gameObject,0.4f);
+            Animator bubbleAnim = collision.GetComponent<Animator>();
+            bubbleAnim.SetBool("IsDead", true);
+            Destroy(collision.gameObject,0.6f);
         }
     }
 
