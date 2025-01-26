@@ -6,7 +6,6 @@ public class Wall : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Interaction");
         if (collision.CompareTag("Player"))
         {
             if (collision.gameObject.GetComponent<BubbleList>().getFirstBubble() != null)
