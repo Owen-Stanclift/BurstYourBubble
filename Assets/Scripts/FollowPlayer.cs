@@ -32,13 +32,15 @@ public class FollowPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bubble"))
-        {
+        //if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bubble"))
+        //{
             if (!followPlayer)
             {
+                player = collision.gameObject;
                 collision.gameObject.GetComponent<BubbleList>().AddBubble(gameObject);
                 followPlayer = true;
+                //Debug.Log("Following: " + collision.gameObject.transform.position);
             }
-        }
+        //}
     }
 }
