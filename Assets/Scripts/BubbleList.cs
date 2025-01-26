@@ -29,7 +29,9 @@ public class BubbleList : MonoBehaviour
             return bubbleList[0];
         }
         else
+        {
             return null;
+        }
 
     }
 }
